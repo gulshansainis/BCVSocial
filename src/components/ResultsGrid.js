@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ResultsGrid = ({ results }) => {
-  function formatDate(date) {
+  const [rowBg, setRowBg] = useState("");
+
+  const handleRowBgChange = e => {
+    setRowBg(e.target.value);
+  };
+
+  const formatDate = date => {
     const year = date.getFullYear();
 
     let month = (1 + date.getMonth()).toString();
@@ -11,49 +17,56 @@ const ResultsGrid = ({ results }) => {
     day = day.length > 1 ? day : `0${day}`;
 
     return month + "/" + day + "/" + year;
-  }
+  };
 
   return (
-    <ul className="resultgrid">
-      <li>
-        <span>
-          <strong>Date</strong>
-        </span>
-        <span>
-          <strong>Venue</strong>
-        </span>
-        <span>
-          <strong>Team A</strong>
-        </span>
-        <span>
-          <strong>Team B</strong>
-        </span>
-        <span>
-          <strong>Winner</strong>
-        </span>
-      </li>
-      {results.map(result => {
-        const {
-          venue,
-          fifa_id,
-          home_team_country: teamA,
-          away_team_country: teamB,
-          winner,
-          datetime
-        } = result;
+    <>
+      <h2>Match Results</h2>
+      <label htmlFor="colorPicker">
+        Configure results background color{" "}
+        <input type="color" onChange={handleRowBgChange} />
+      </label>
+      <ul style={{ background: rowBg }} className="resultgrid">
+        <li>
+          <span>
+            <strong>Date</strong>
+          </span>
+          <span>
+            <strong>Venue</strong>
+          </span>
+          <span>
+            <strong>Team A</strong>
+          </span>
+          <span>
+            <strong>Team B</strong>
+          </span>
+          <span>
+            <strong>Winner</strong>
+          </span>
+        </li>
+        {results.map(result => {
+          const {
+            venue,
+            fifa_id,
+            home_team_country: teamA,
+            away_team_country: teamB,
+            winner,
+            datetime
+          } = result;
 
-        return (
-          <ResultRow
-            key={fifa_id}
-            date={formatDate(new Date(datetime))}
-            venue={venue}
-            teamA={teamA}
-            teamB={teamB}
-            winner={winner === "Draw" ? "Match draw" : `${winner} won`}
-          />
-        );
-      })}
-    </ul>
+          return (
+            <ResultRow
+              key={fifa_id}
+              date={formatDate(new Date(datetime))}
+              venue={venue}
+              teamA={teamA}
+              teamB={teamB}
+              winner={winner === "Draw" ? "Match draw" : `${winner} won`}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 };
 
