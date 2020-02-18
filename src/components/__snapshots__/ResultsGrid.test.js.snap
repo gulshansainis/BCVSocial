@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h2>
+    Match Results
+  </h2>,
+  <label
+    htmlFor="colorPicker"
+  >
+    Configure results background color
+     
+    <input
+      onChange={[Function]}
+      type="color"
+    />
+  </label>,
+  <ul
+    className="resultgrid"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <li>
+      <span>
+        <strong>
+          Date
+        </strong>
+      </span>
+      <span>
+        <strong>
+          Venue
+        </strong>
+      </span>
+      <span>
+        <strong>
+          Team A
+        </strong>
+      </span>
+      <span>
+        <strong>
+          Team B
+        </strong>
+      </span>
+      <span>
+        <strong>
+          Winner
+        </strong>
+      </span>
+    </li>
+    <li>
+      <span>
+        06/10/2019
+      </span>
+      <span>
+        Valenciennes
+      </span>
+      <span>
+        Australia
+      </span>
+      <span>
+        Italy
+      </span>
+      <span>
+        Italy won
+      </span>
+    </li>
+  </ul>,
+]
+`;
