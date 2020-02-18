@@ -3,6 +3,7 @@ import Form from "./Form";
 import { connect } from "react-redux";
 import ErrorBoundary from "./ErrorBoundary";
 import ResultsGrid from "./ResultsGrid";
+import ToogleTheme from "./ToogleTheme";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class App extends React.Component {
     const { results = [], isLoading, isError } = this.props;
     return (
       <div className="container">
+        <nav>
+          <ToogleTheme />
+        </nav>
         <Form keyword={this.state.keyword} handleChange={this.handleChange} />
         <ErrorBoundary>
           {isLoading ? (

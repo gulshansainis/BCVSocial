@@ -1,7 +1,11 @@
 :root {
   --black: #141414;
+  --light-grey: #a7a7a7;
+  --dark-grey: #9d9d9d;
   --white: #ffffff;
   --red: rgba(255, 0, 0, 1);
+  --shadow-light: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  --shadow-dark: 1px 1px 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -9,6 +13,13 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+body[data-theme="dark"] {
+  color: var(--white);
+  background-color: var(--black);
 }
 
 * {
@@ -24,10 +35,26 @@ h3 {
 .container {
   max-width: 960px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .error {
   color: var(--red);
+}
+
+button {
+  border: 1px solid var(--light-grey);
+  border-radius: 40px;
+  outline: none;
+  color: var(--black);
+  background: var(--white);
+  box-shadow: var(--shadow-light);
+}
+
+body[data-theme="dark"] button {
+  color: var(--white);
+  background-color: var(--black);
+  box-shadow: var(--shadow-dark);
 }
 
 .searchForm {
@@ -44,21 +71,31 @@ h3 {
 }
 
 .search-controls input {
-  display: inline-block;
   width: 40%;
   padding: 10px;
   margin-right: 10px;
   line-height: 18px;
 }
 
-.searchForm button {
-  display: inline-block;
+.searchForm button,
+.toggleTheme {
   padding: 10px;
 }
 
 .search-controls input::placeholder,
-.search-controls button {
+.search-controls button,
+.toggleTheme {
   font-size: 16px;
+}
+
+nav {
+  position: relative;
+  height: 100px;
+}
+
+.toggleTheme {
+  position: absolute;
+  right: 0px;
 }
 
 @keyframes flickerAnimation {
@@ -91,7 +128,7 @@ h3 {
 .resultgrid li {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border: 1px solid var(--black);
+  border: 1px solid var(--light-grey);
 }
 
 .resultgrid li span {
