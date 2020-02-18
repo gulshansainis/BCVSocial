@@ -26,6 +26,10 @@ h3 {
   margin: 0 auto;
 }
 
+.error {
+  color: var(--red);
+}
+
 .searchForm {
   display: flex;
   flex-direction: column;
@@ -55,4 +59,41 @@ h3 {
 .search-controls input::placeholder,
 .search-controls button {
   font-size: 16px;
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-flicker {
+  animation: flickerAnimation 1s infinite;
+}
+
+.resultgrid {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.resultgrid li {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--black);
+}
+
+.resultgrid li span {
+  padding: 10px;
 }

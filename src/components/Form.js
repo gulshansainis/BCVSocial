@@ -1,10 +1,19 @@
 import React from "react";
+import store from "../store";
+import { thunked } from "../actions/searchActions";
 
 const Form = props => {
   const { keyword, handleChange } = props;
 
+  const handleSubmit = e => {
+    // cancel form submit
+    e.preventDefault();
+    // dispatch keyword to thunked action
+    store.dispatch(thunked(keyword));
+  };
+
   return (
-    <form className="searchForm">
+    <form className="searchForm" onSubmit={handleSubmit}>
       <h1>Enter FIFA Code</h1>
       <div className="search-controls">
         <input

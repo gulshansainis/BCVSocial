@@ -1,27 +1,45 @@
+/**
+ * App initial state
+ */
 const initialState = {
   results: [],
-  isloading: false,
-  isError: false
+  isLoading: false,
+  isError: false,
+  error: ""
 };
 
+/**
+ *
+ * @param {*} state
+ * @param {*} action
+ *
+ * search reducer function that returns new state based on user action
+ */
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCHING":
       return {
         ...state,
-        isloading: true
+        isLoading: true,
+        results: [],
+        isError: false,
+        error: ""
       };
     case "FETCHED":
       return {
         ...state,
-        isloading: false,
-        results: action.results
+        isLoading: false,
+        results: action.results,
+        isError: false,
+        error: ""
       };
     case "ERROR":
       return {
         ...state,
-        isloading: false,
-        isError: true
+        results: [],
+        isLoading: false,
+        isError: true,
+        error: action.error
       };
     default:
       return state;

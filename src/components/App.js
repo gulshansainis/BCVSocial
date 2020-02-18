@@ -1,6 +1,8 @@
 import React from "react";
-import Form from "./components/Form";
+import Form from "./Form";
 import { connect } from "react-redux";
+import ErrorBoundary from "./ErrorBoundary";
+import ResultsGrid from "./ResultsGrid";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +17,21 @@ class App extends React.Component {
   };
 
   render() {
+    const { results = [], isLoading, isError } = this.props;
     return (
       <div className="container">
         <Form keyword={this.state.keyword} handleChange={this.handleChange} />
+        <ErrorBoundary>
+          {isLoading ? (
+            <h2 className="animate-flicker">Loading...</h2>
+          ) : isError ? (
+            <h2 className="error">Something went wrong...</h2>
+          ) : results.length > 0 ? (
+            <ResultsGrid results={results} />
+          ) : (
+            ""
+          )}
+        </ErrorBoundary>
       </div>
     );
   }
