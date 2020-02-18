@@ -1,5 +1,3 @@
-import React from "react";
-
 const RegExReplacer = () => {
   const sortAndReplace = obj => {
     let sortedKeys = [];
@@ -13,10 +11,7 @@ const RegExReplacer = () => {
 
     const sortedObj = JSON.stringify(obj, sortedKeys);
 
-    let replacedObject = sortedObj.replace(
-      /[:](\"link-color\")/g,
-      ':"#244cde"'
-    );
+    let replacedObject = sortedObj.replace(/[:](\"link-color\")/g, ':"#244cde"');
     return replacedObject;
   };
 
