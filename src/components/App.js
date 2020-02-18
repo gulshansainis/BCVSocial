@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ErrorBoundary from "./ErrorBoundary";
 import ResultsGrid from "./ResultsGrid";
 import ToogleTheme from "./ToogleTheme";
+import RegExReplacer from "./RegExReplacer";
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends React.Component {
             ""
           )}
         </ErrorBoundary>
+        <RegExReplacer />
       </div>
     );
   }
