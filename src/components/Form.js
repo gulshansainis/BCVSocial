@@ -47,7 +47,7 @@ const Form = props => {
               <option value="GER">Germany</option>
               <option value="NGA">Nigeria</option>
               <option value="ESP">Spain</option>
-            <select>
+            </select>
           <button style={{ background: buttonBg }} type="submit">
             Search
           </button>
