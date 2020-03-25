@@ -20,7 +20,7 @@ const Form = props => {
   return (
     <>
       <form className="searchForm" onSubmit={handleSubmit}>
-        <h1>Enter FIFA Code</h1>
+        <h1>Select FIFA Code To View Match Results</h1>
         <div className="search-controls">
           <select value={keyword} onChange={handleChange}>
               <option value="CAN">Canada</option>
