@@ -34,10 +34,12 @@ const Form = props => {
           </button>
         </div>
       </form>
+     {/*
       <label htmlFor="colorPicker">
         Change color of submit button{" "}
         <input name="colorPicker" onChange={handleBgChange} type="color" />
       </label>
+      */}
     </>
   );
 };
