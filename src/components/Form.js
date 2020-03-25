@@ -22,13 +22,32 @@ const Form = props => {
       <form className="searchForm" onSubmit={handleSubmit}>
         <h1>Enter FIFA Code</h1>
         <div className="search-controls">
-          <input
-            type="text"
-            value={keyword}
-            onChange={handleChange}
-            placeholder="FIFA country code"
-            required
-          />
+          <select value={keyword} onChange={handleChange}>
+              <option value="CAN">Canada</option>
+              <option value="SCO">Scotland</option>
+              <option value="AUS">Australia</option>
+              <option value="ARG">Argentina</option>
+              <option value="ITA">Italy</option>
+              <option value="NZL">New Zealand</option>
+              <option value="KOR">Korea Republic</option>
+              <option value="THA">Thailand</option>
+              <option value="CHI">Chile</option>
+              <option value="CHN">China PR</option>
+              <option value="JPN">Japan</option>
+              <option value="ENG">England</option>
+              <option value="NOR">Norway</option>
+              <option value="BRA">Brazil</option>
+              <option value="SWE">Sweden</option>
+              <option value="RSA">South Africa</option>
+              <option value="CMR">Cameroon</option>
+              <option value="JAM">Jamaica</option>
+              <option value="USA">USA</option>
+              <option value="FRA">France</option>
+              <option value="NED">Netherlands</option>
+              <option value="GER">Germany</option>
+              <option value="NGA">Nigeria</option>
+              <option value="ESP">Spain</option>
+            <select>
           <button style={{ background: buttonBg }} type="submit">
             Search
           </button>
