@@ -9,6 +9,9 @@ const Form = props => {
   const handleSubmit = e => {
     // cancel form submit
     e.preventDefault();
+    if(keyword==='') {
+      return;
+    }
     // dispatch keyword to thunked action
     store.dispatch(thunked(keyword));
   };
@@ -23,6 +26,7 @@ const Form = props => {
         <h1>Select FIFA Code To View Match Results</h1>
         <div className="search-controls">
           <select value={keyword} onChange={handleChange}>
+              <option value=''>Select...</option>
               <option value="CAN">Canada</option>
               <option value="SCO">Scotland</option>
               <option value="AUS">Australia</option>
