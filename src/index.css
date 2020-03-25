@@ -76,7 +76,7 @@ label[for="colorPicker"] {
   width: 100%;
 }
 
-.search-controls input {
+.search-controls input, .search-controls select {
   width: 40%;
   padding: 10px;
   margin-right: 10px;
